@@ -1,0 +1,10 @@
+enabled: false
+saml_autoloader_path:
+saml_auth_source:
+saml_permissions_attribute:
+permission_login:
+permission_edit:
+permission_admin:
+permission_redirect:
+save_user: false
+full_site: false

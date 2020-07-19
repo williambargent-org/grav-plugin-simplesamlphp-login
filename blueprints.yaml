@@ -1,0 +1,113 @@
+name: SimpleSAMLphp Login
+version: 0.1.0
+description: SSO SAML login with a SimpleSAMLphp SP.
+icon: plug
+author:
+  name: William Bargent
+  email: git@williambargent.co.uk
+homepage: https://github.com/WilliamBargentLimited/grav-plugin-simplesamlphp-login
+keywords: grav, plugin, login, saml, simplesamlphp, sso, authentication
+bugs: https://github.com/WilliamBargentLimited/grav-plugin-simplesamlphp-login/issues
+docs: https://github.com/WilliamBargentLimited/grav-plugin-simplesamlphp-login/blob/develop/README.md
+license: GPL-3.0
+
+dependencies:
+  - { name: login, version: '>=3.3.5' }
+  - { name: admin, version: '>=1.9.15' }
+
+form:
+  validation: strict
+  fields:
+    MediaResize1:
+      type: section
+      title: Plugin
+      underline: true
+    enabled:
+      type: toggle
+      label: Plugin Status
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    MediaResize2:
+      type: section
+      title: SimpleSAMLphp
+      underline: true
+    saml_autoloader_path:
+      type: text
+      label: Autoloader Path
+      size: large
+      placeholder: /var/simplesamlphp/lib/_autoload.php
+      validate:
+        required: true
+    saml_auth_source:
+      type: text
+      label: Authentication Source
+      size: large
+      placeholder: default-sp
+      validate:
+        required: true
+    MediaResize3:
+      type: section
+      title: Permissions
+      underline: true
+    saml_permissions_attribute:
+      type: text
+      label: SAML Permissions Attribute
+      size: large
+      placeholder: memberOf
+      validate:
+        required: true
+    permission_login:
+      type: text
+      label: SAML Permissions Result for Login
+      size: large
+      placeholder: grav-login
+      validate:
+        required: true
+    permission_edit:
+      type: text
+      label: SAML Permissions Result for Editing
+      size: large
+      placeholder: grav-login-edit
+      validate:
+        required: true
+    permission_admin:
+      type: text
+      label: SAML Permissions Result for Administrators
+      size: large
+      placeholder: grav-login-admin
+      validate:
+        required: true
+    permission_redirect:
+      type: text
+      label: Permission Denied Redirect
+      size: large
+      placeholder: '/user_unauthorized'
+      validate:
+        required: true
+    MediaResize4:
+      type: section
+      title: Other
+      underline: true
+    save_user:
+      type: toggle
+      label: Save User in GRAV
+      default: 0
+      options:
+        0: Don't Save
+        1: Save
+      validate:
+        type: bool
+    full_site:
+      type: toggle
+      label: Authenticate Full Site
+      default: 0
+      options:
+        0: Protect Admin Only
+        1: Protect Full Site
+      validate:
+        type: bool
